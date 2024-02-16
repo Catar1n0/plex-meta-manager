@@ -1,0 +1,78 @@
+## This file is a template remove the .template to use the file
+
+libraries:                       # This is called out once within the config.yml file
+  Movies:                        # These are names of libraries in your Plex
+    overlay_path:
+    - remove_overlays: false
+    - reapply_overlay: true
+    - pmm: resolution                               # 4K HDR, 1080P FHD, etc. with the standards style 
+      template_variables:
+        style: standards
+    - pmm: ratings
+      template_variables:
+        rating1: critic
+        rating1_image: imdb
+        rating1_font_size: 45
+        back_color: '#00000075'
+        horizontal_position: left
+        vertical_position: bottom
+    metadata_path:
+      - pmm: oscars
+
+    operations:
+      mass_critic_rating_update: imdb
+      mass_audience_rating_update: tmdb
+      mass_user_rating_update: tmdb
+mass_poster_update: tmdb
+mas_background_update: tmdb
+
+settings:
+  cache: true
+  cache_expiration: 60
+  asset_directory: config/assets
+  asset_folders: false
+  asset_depth: 0
+  create_asset_folders: false
+  prioritize_assets: false
+  dimensional_asset_rename: false
+  download_url_assets: false
+  show_missing_assets: false
+  show_missing_season_assets: false
+  show_missing_episode_assets: false
+  show_asset_not_needed: false
+  sync_mode: append
+  default_collection_order:
+  minimum_items: 1
+  item_refresh_delay: 0
+  delete_below_minimum: false
+  delete_not_scheduled: false
+  run_again_delay: 0
+  missing_only_released: false
+  only_filter_missing: false
+  show_unmanaged: false
+  show_unconfigured: false
+  show_filtered: false
+  show_options: false
+  show_missing: false
+  save_report: false
+  tvdb_language: default
+  ignore_ids:
+  ignore_imdb_ids:
+  playlist_sync_to_users: all
+  playlist_exclude_users:
+  playlist_report: false
+  verify_ssl: true
+  custom_repo:
+  check_nightly: false
+plex:                            # Can be individually specified per library as well; REQUIRED for the script to run
+  url: http://127.0.0.1:32400
+  token: ####################################
+  timeout: 60
+  clean_bundles: false
+  empty_trash: false
+  optimize: false
+tmdb:                            # REQUIRED for the script to run
+  apikey: ####################################
+  language: en
+  cache_expiration: 60
+  region:
